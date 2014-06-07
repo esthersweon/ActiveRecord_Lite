@@ -1,12 +1,12 @@
 class AttrAccessorObject
-  def self.my_attr_accessor(*names)
-    names.each do |name|
-      define_method(name) do
-        instance_variable_get("@#{name}")
+  def self.my_attr_accessor(*attributes)
+    attributes.each do |attribute|
+      define_method(attribute) do
+        instance_variable_get("@#{attribute}")
       end
 
-      define_method("#{name}=") do |value|
-        instance_variable_set("@#{name}", value)
+      define_method("#{attribute}=") do |value|
+        instance_variable_set("@#{attribute}", value)
       end
     end
   end
